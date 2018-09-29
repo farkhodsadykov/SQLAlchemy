@@ -1,15 +1,15 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy_declarative import Address, Base, Person
+from sqlalchemy.ext.declarative import declarative_base
+from create import User
 
-# Connecting to the DataBase
-engine = create_engine('sqlite:///DataBase/example.db')
+engine = create_engine('mysql://flaskuser:flask**@159.89.180.31/zabbix')
+Base = declarative_base()
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
 
-# Insert a new user to the table users
-new_user = User(username='farkhodsadykov', name='Farkhod', fullname='Farkhod Sadykov', password='PASSWORD')
+new_user = User(username='ahmedali', fname='Ahmed', lname='Ali', password='PASSWORD', email='ahmedali@gmail.com',status='True', role='student')
 session.add(new_user)
 session.commit()

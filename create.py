@@ -20,6 +20,6 @@ class User(Base):
 
 # When user run the script  it will go to Database and create everything
 if __name__ == '__main__':
-    db = create_engine('sqlite:///DataBase/example.db')
-    # db = create_engine('mysql://flaskuser:flask**@ipdatabase/zabbix')
+    # db = create_engine('sqlite:///DataBase/example.db')
+    db = create_engine('mysql://flaskuser:flask**@159.89.180.31/zabbix')
     Base.metadata.create_all(bind=db)
